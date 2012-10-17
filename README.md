@@ -19,6 +19,7 @@ Commands
 - [__onevnc__](#onevnc): Opens the VNC console of a running VM.
 - [__oneirb__](#oneirb): Opens an IRB session with all the OpenNebula libraries.
 - [__oneconf__](#oneconf): Modifies the default configuration files.
+- [__oneeditconf__](#oneeditconf): Edit the oned.conf file.
 - [__onebootstrap__](#onebootstrap): Creates initial OpenNebula resources.
 - [__onecast__](#onecast): OpenNebula templates with variables.
 
@@ -133,14 +134,17 @@ the following changes:
 - `MANAGER_TIMER`: 5 seconds
 - `HOST_MONITORING_INTERVAL`: 10 seconds
 - `VM_POLLING_INTERVAL`: 10 seconds
-- Enables `TM_SSH`
-- Enables `TM_DUMMY`
 - Enables `IM_DUMMY`
 - Enables `VMM_DUMMY`
 
 #### sched.conf
 
 - `SCHED_INTERVAL`: 5 seconds
+
+oneeditconf
+-----------
+
+Edit the oned.conf file. EDITOR variable will be used if defined
 
 onebootstrap
 ------------

@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+EDITOR_PATH='/usr/bin/vi'
+
+if ONE_LOCATION = ENV['ONE_LOCATION']
+    oned_conf  = ONE_LOCATION + '/etc/oned.conf'
+else
+    # Taken from: http://jimeh.me/blog/2010/02/22/built-in-sudo-for-ruby-command-line-tools/
+    if ENV["USER"] != "root"
+      exec("sudo #{ENV['_']} #{ARGV.join(' ')}")
+    end
+
+    oned_conf = '/etc/one/oned.conf'
+end
+
+editor_path = ENV["EDITOR"] ? ENV["EDITOR"] : EDITOR_PATH
+system("#{editor_path} #{oned_conf}")
+
+unless $?.exitstatus == 0
+    puts "Editor not defined"
+    exit -1
+end
