@@ -1,0 +1,3 @@
+NAME          = "ubuntu-server-12.04"
+PATH          = /tmp/dummy_image_for_opennebula
+PUBLIC        = YES

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+REALPATH=$(readlink -f $0)
+cd `dirname $REALPATH`
+
+onedatastore update 0 bootstrapdummy/update.datastore0
+onedatastore update 1 bootstrapdummy/update.datastore1
+
+onehost create kvm_dummy -i im_dummy -v vmm_dummy -n dummy
+
+onevnet create bootstrapdummy/create.vnet
+
+touch /tmp/dummy_image_for_opennebula
+oneimage create bootstrapdummy/create.image -d 1
+
+onetemplate create bootstrapdummy/create.template
+

@@ -21,6 +21,7 @@ Commands
 - [__oneconf__](#oneconf): Modifies the default configuration files.
 - [__oneeditconf__](#oneeditconf): Edit the oned.conf file.
 - [__onebootstrap__](#onebootstrap): Creates initial OpenNebula resources.
+- [__onebootstrapdummy__](#onebootstrapdummy): Creates initial dummy OpenNebula resources.
 - [__onecast__](#onecast): OpenNebula templates with variables.
 
 onelog
@@ -165,6 +166,19 @@ All of these resources can be customized by editing the files inside
 The datastore where the images will be instantiated needs to have `DEFAULT =
 YES` inside the template. This is only necessary if more than one datastore is
 created.
+
+onebootstrapdummy
+------------
+
+This command should be executed only with a fresh OpenNebula installation. It
+will create some resources:
+
+* __host__: localhost with dummy configuration
+* __vnet__: a few IPs in the 172.16.0.0/24 network connected to bridge `br0`
+* __image__: an Ubuntu image with dummy path
+* __template__: an Ubuntu template ready to be instantiated
+
+Also, his command will update the existing datastores (0 & 1) to use the dummy DS and TM MADS
 
 onecast
 -------
