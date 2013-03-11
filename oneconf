@@ -55,8 +55,10 @@ single_vals.each do |k,v|
     end
 end
 
-conf.uncomment('#IM_MAD = [ name="im_dummy", executable="one_im_dummy"]')
-conf.uncomment('#VM_MAD = [ name="vmm_dummy", executable="one_vmm_dummy", type="xml" ]')
+conf.uncomment('#IM_MAD = [ name="dummy", executable="one_im_dummy"]')
+conf.uncomment('#VM_MAD = [ name="dummy", executable="one_vmm_dummy", type="xml" ]')
+
+conf.gsub!('fs,vmware,vmfs,iscsi,lvm,ceph', 'dummy,fs,vmware,vmfs,iscsi,lvm,ceph')
 
 File.open(oned_conf,'w'){|f| f.write(conf)}
 

@@ -1,12 +1,12 @@
 #!/bin/bash
 
-REALPATH=$(readlink -f $0)
+REALPATH=`perl -e 'use Cwd "abs_path";print abs_path(shift)' $0`
 cd `dirname $REALPATH`
 
 onedatastore update 0 bootstrapdummy/update.datastore0
 onedatastore update 1 bootstrapdummy/update.datastore1
 
-onehost create kvm_dummy -i im_dummy -v vmm_dummy -n dummy
+onehost create kvm_dummy -i dummy -v dummy -n dummy
 
 onevnet create bootstrapdummy/create.vnet
 
