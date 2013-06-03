@@ -29,6 +29,22 @@ if [ -n "$ONE_LOCATION" ]; then
         ozones.error)
             $PAGER $ONE_LOCATION/var/ozones-server.error
             ;;
+        appflow)
+            if [ -n "$2" ]; then
+                $PAGER $ONE_LOCATION/var/appflow/$2.log
+            else
+                $PAGER $ONE_LOCATION/var/appflow-server.log
+            fi
+            ;;
+        appflow.error)
+            $PAGER $ONE_LOCATION/var/appflow-server.error
+            ;;
+        appmarket)
+            $PAGER $ONE_LOCATION/var/appmarket-server.log
+            ;;
+        appmarket.error)
+            $PAGER $ONE_LOCATION/var/appmarket-server.error
+            ;;
         *)
             $PAGER $ONE_LOCATION/var/vms/$1/vm.log
             ;;
@@ -62,6 +78,22 @@ else
             ;;
         ozones.error)
             $PAGER /var/log/one/ozones-server.error
+            ;;
+        appflow)
+            if [ -n "$2" ]; then
+                $PAGER /var/log/one/appflow/$2.log
+            else
+                $PAGER /var/log/one/appflow-server.log
+            fi
+            ;;
+        appflow.error)
+            $PAGER /var/log/one/appflow-server.error
+            ;;
+        appmarket)
+            $PAGER /var/log/one/appmarket-server.log
+            ;;
+        appmarket.error)
+            $PAGER /var/log/one/appmarket-server.error
             ;;
         *)
             $PAGER /var/log/one/$1.log
