@@ -173,12 +173,12 @@ onebootstrapdummy
 This command should be executed only with a fresh OpenNebula installation. It
 will create some resources:
 
-* __host__: localhost with dummy configuration
+* __host__: 3 dummy hosts
 * __vnet__: a few IPs in the 172.16.0.0/24 network connected to bridge `br0`
 * __image__: an Ubuntu image with dummy path
 * __template__: an Ubuntu template ready to be instantiated
 
-Also, his command will update the existing datastores (0 & 1) to use the dummy DS and TM MADS
+Also, this command will update the existing datastores (0 & 1) to use the dummy DS and TM MADS
 
 onecast
 -------

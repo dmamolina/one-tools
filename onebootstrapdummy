@@ -5,8 +5,11 @@ cd `dirname $REALPATH`
 
 onedatastore update 0 bootstrapdummy/update.datastore0
 onedatastore update 1 bootstrapdummy/update.datastore1
+onedatastore update 2 bootstrapdummy/update.datastore2
 
 onehost create kvm_dummy -i dummy -v dummy -n dummy
+onehost create xen_dummy -i dummy -v dummy -n dummy
+onehost create vmx_dummy -i dummy -v dummy -n dummy
 
 onevnet create bootstrapdummy/create.vnet
 

@@ -1,3 +1,2 @@
-DS_MAD="-"
-SYSTEM="YES"
 TM_MAD="dummy"
+TYPE="SYSTEM_DS"
