@@ -25,30 +25,23 @@ $: << RUBY_LIB_LOCATION+"/cloud" # For the Repository Manager
 ################################################
 # Required libraries
 ################################################
+require 'rubygems'
 require 'yaml'
 require 'erb'
 require 'tempfile'
 require 'fileutils'
 require 'json'
 
-require 'OpenNebula'
+require 'opennebula'
 include OpenNebula
 
-require 'VirtualMachineOCCI'
-require 'VirtualMachinePoolOCCI'
-require 'VirtualNetworkOCCI'
-require 'VirtualNetworkPoolOCCI'
-require 'ImageOCCI'
-require 'ImagePoolOCCI'
-require 'UserOCCI'
-require 'UserPoolOCCI'
 
 require 'pp'
 
 if ENV['ONE_AUTH']
   authfile = ENV['ONE_AUTH']
 else
-  authfile = "ENV['HOME']/.one/one_auth"
+  authfile = "#{ENV['HOME']}/.one/one_auth"
 end
 
 # OpenNebula credentials
@@ -58,16 +51,6 @@ ENDPOINT    = "http://localhost:2633/RPC2"
 
 @client = Client.new(CREDENTIALS, ENDPOINT)
 
-begin
-    conf = YAML.load_file(CONFIGURATION_FILE)
-rescue Exception => e
-    puts "Error parsing config file #{CONFIGURATION_FILE}: #{e.message}"
-    exit 1
-end
-
-conf[:template_location] = TEMPLATE_LOCATION
-
-@config = conf
 require "irb"
 
 if __FILE__ == $0
